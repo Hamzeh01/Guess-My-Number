@@ -33,7 +33,7 @@ document.querySelector(".check").addEventListener("click", () => {
 
     // CASE 3: User cannot guess correct value
     case guess !== randomNumber:
-      if (score > 0) {
+      if (score > 1) {
         displayMessage(guess > randomNumber ? "📈 Too high!" : "📉 Too low!");
         score--;
         document.querySelector(".score").textContent = score;
