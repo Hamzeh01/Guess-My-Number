@@ -120,3 +120,92 @@ main {
 .label-score {
   margin-bottom: 2rem;
 }
+
+/* media query: turn the header into a flex box, then put the element in the column direction, like the Belw structure.
+-h1
+- .between
+- .number
+As you can see, we removed the button for now.
+then moving to the main section, you should put the .left above .right div in one column, then include .again button in blow (actually at the end of the .right div) */
+/* Add a media query for screens smaller than 768px */
+@media (max-width: 768px) {
+  /* Header section */
+  header {
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0rem;
+    margin: 1rem 0rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    position: static;
+    transform: translate(0%, 0%);
+    margin-bottom: 3.5rem;
+    order: 1;
+  }
+
+  .between {
+    font-size: 1rem;
+    position: static;
+    margin-bottom: 2.5rem;
+    order: 3;
+  }
+
+  .again {
+    position: static;
+    order: 4;
+    margin-bottom: 2.5rem;
+  }
+
+  .number {
+    font-size: 4rem;
+    padding: 0.8rem 0.2rem; /* Reduce the padding */
+    position: static;
+    border: none;
+    transform: translate(0%, 0%);
+    order: 2;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Main section */
+  main {
+    flex-direction: column; /* Stack left and right sections vertically */
+    align-items: center;
+  }
+
+  .left {
+    width: 60%;
+  }
+
+  .right {
+    width: 60%;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .guess {
+    font-size: 2rem;
+    padding: 1rem;
+    width: 70%;
+    margin-bottom: 2.5rem;
+  }
+
+  .btn {
+    font-size: 1.5rem;
+    padding: 1.25rem 2rem;
+    /* margin: 1rem 0;  */
+  }
+
+  .message {
+    margin-bottom: 2.5rem;
+  }
+
+  .label-score,
+  .label-highscore {
+    margin-bottom: 2.5rem;
+  }
+}
