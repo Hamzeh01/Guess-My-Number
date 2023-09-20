@@ -4,6 +4,7 @@
   --text-primary-color: #eee;
   --bg-primary-color: #222;
   --btn-primary-color: #ccc;
+  --bg-success-color: #60b347;
 }
 * {
   margin: 0;
@@ -20,7 +21,6 @@ body {
   font-family: "Press Start 2P", sans-serif;
   color: var(--text-primary-color);
   background-color: var(--bg-primary-color);
-  /* background-color: #60b347; */
 }
 
 /* LAYOUT */
@@ -121,4 +121,3 @@ h1 {
 .label-score {
   margin-bottom: 2rem;
 }
-
