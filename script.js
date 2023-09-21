@@ -23,7 +23,7 @@ document.querySelector(".check").addEventListener("click", () => {
       displayMessage("🎉 Correct Number!");
       document.querySelector(".number").textContent = randomNumber;
       document.querySelector(".number").style.width = "25rem";
-      document.querySelector("body").style.backgroundColor = "#60b347";
+      document.querySelector("body").style.backgroundColor = "#4caf50";
 
       //Update highScore
       highScore = score > highScore ? score : highScore;
@@ -60,7 +60,7 @@ document.querySelector(".again").addEventListener("click", () => {
   document.querySelector(".number").textContent = "?";
   document.querySelector(".guess").value = "";
   document.querySelector(".number").style.width = "15rem";
-  document.querySelector("body").style.backgroundColor = "#222";
+  document.querySelector("body").style.backgroundColor = "#0d0d0d";
 });
 
 const displayMessage = function (message) {

@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
 
 :root {
-  --text-primary-color: #eee;
-  --bg-primary-color: #222;
-  --btn-primary-color: #ccc;
-  --bg-success-color: #60b347;
+  --text-primary-color: #fff; /* White text for better visibility */
+  --bg-primary-color: #0d0d0d; /* Dark background for a gaming feel */
+  --btn-primary-color: #ff6f61; /* Reddish button color for action */
+  --bg-success-color: #4caf50; /* Green for success or victory */
 }
 * {
   margin: 0;
