@@ -4,7 +4,7 @@
 const MIN_SCORE = 0;
 const MAX_SCORE = 20;
 
-// Find secret number between 1 and 20 (icluded)
+// Find secret number between 1 and 20 (included)
 let randomNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let highScore = 0;
