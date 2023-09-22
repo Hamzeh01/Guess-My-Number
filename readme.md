@@ -1,6 +1,6 @@
 # Guess My Number Game
 
-![Project Screenshot](Guess-My-Number\screenshots\startState.png)
+![Project Screenshot](https://github.com/Hamzeh01/Guess-My-Number/blob/main/screenshots/startState.png)
 
 ## Project Details
 
