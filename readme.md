@@ -1,6 +1,6 @@
 # Guess My Number Game
 
-![Project Screenshot](screenshots/startState.png.png)
+![Project Screenshot](/screenshots/startState.png.png)
 
 ## Project Details
 
