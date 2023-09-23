@@ -1,68 +1,72 @@
 "use strict";
 
-// Define min and max score in game! DRY principle
+// Define min and max score in the game 
 const MIN_SCORE = 0;
 const MAX_SCORE = 20;
 
-// Find secret number between 1 and 20 (included)
-let randomNumber = Math.trunc(Math.random() * 20) + 1;
-let score = 20;
-let highScore = 0;
+// Game state variables
+let randomNumber, score, highScore;
 
-document.querySelector(".check").addEventListener("click", () => {
-  const guess = +document.querySelector(".guess").value;
+// Elements
+const guessInput = document.querySelector(".guess");
+const messageElement = document.querySelector(".message");
+const numberElement = document.querySelector(".number");
+const scoreElement = document.querySelector(".score");
+const highScoreElement = document.querySelector(".highscore");
+const bodyElement = document.querySelector("body");
 
-  switch (true) {
-    // CASE 1: User does not input any value
-    case !guess:
-      displayMessage("⛔️ No number!");
-      break;
-
-    // CASE 2: User input correct guess
-    case guess === randomNumber:
-      displayMessage("🎉 Correct Number!");
-      document.querySelector(".number").textContent = randomNumber;
-      document.querySelector(".number").style.width = "25rem";
-      document.querySelector("body").style.backgroundColor = "#4caf50";
-
-      //Update highScore
-      highScore = score > highScore ? score : highScore;
-      console.log(highScore);
-      document.querySelector(".highscore").textContent = highScore;
-      break;
-
-    // CASE 3: User cannot guess correct value
-    case guess !== randomNumber:
-      if (score > 1) {
-        displayMessage(guess > randomNumber ? "📈 Too high!" : "📉 Too low!");
-        score--;
-        document.querySelector(".score").textContent = score;
-      } else {
-        displayMessage("💥 You lost the game!");
-        document.querySelector(".score").textContent = 0;
-      }
-      break;
-
-    // UNEXPECTED CASES
-    default:
-      console.error(
-        `${guess} is neither falsy value(empty) nor ${randomNumber} nor a wrong number`
-      );
-      break;
-  }
-});
-
-document.querySelector(".again").addEventListener("click", () => {
+const initGame = () => {
+  randomNumber = generateRandomNumber();
   score = MAX_SCORE;
-  randomNumber = Math.trunc(Math.random() * 20) + 1;
+  highScore = MIN_SCORE;
   displayMessage("Start guessing...");
-  document.querySelector(".score").textContent = score;
-  document.querySelector(".number").textContent = "?";
-  document.querySelector(".guess").value = "";
-  document.querySelector(".number").style.width = "15rem";
-  document.querySelector("body").style.backgroundColor = "#0d0d0d";
-});
-
-const displayMessage = function (message) {
-  document.querySelector(".message").textContent = message;
+  numberElement.textContent = "?";
+  numberElement.style.width = "15rem";
+  scoreElement.textContent = score;
+  bodyElement.style.backgroundColor = "#0d0d0d";
 };
+
+const generateRandomNumber = () => Math.trunc(Math.random() * 20) + 1;
+
+const displayMessage = (message) => (messageElement.textContent = message);
+
+const handleGuess = () => {
+  const guess = +guessInput.value;
+
+  if (!guess) {
+    displayMessage("⛔️ No number!");
+  } else if (guess === randomNumber) {
+    handleCorrectGuess();
+  } else {
+    handleWrongGuess(guess);
+  }
+};
+
+const handleCorrectGuess = () => {
+  displayMessage("🎉 Correct Number!");
+  numberElement.textContent = randomNumber;
+  numberElement.style.width = "25rem";
+  bodyElement.style.backgroundColor = "#4caf50";
+
+  // Update highScore if necessary
+  highScore = Math.max(score, highScore);
+  highScoreElement.textContent = highScore;
+};
+
+const handleWrongGuess = (guess) => {
+  if (score > 1) {
+    displayMessage(guess > randomNumber ? "📈 Too high!" : "📉 Too low!");
+    score--;
+    scoreElement.textContent = score;
+  } else {
+    displayMessage("💥 You lost the game!");
+    scoreElement.textContent = 0;
+  }
+};
+
+// Event listeners
+document.querySelector(".check").addEventListener("click", handleGuess);
+document.querySelector(".again").addEventListener("click", initGame);
+
+// Initialize the game
+initGame();

@@ -6,7 +6,7 @@
 
 - **Description**: A simple number guessing game where the player tries to guess a secret number between 1 and 20.
 - **Live Demo**: [Play the Game](#)
-- **Repository**: [GitHub Repository](https://github.com/yourusername/guess-my-number)
+- **Repository**: [GitHub Repository](https://github.com/Hamzeh01/Guess-My-Number)
 
 ## Table of Contents
 
